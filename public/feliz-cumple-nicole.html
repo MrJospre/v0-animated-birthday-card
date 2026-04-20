@@ -388,20 +388,61 @@
             opacity: 0.9;
         }
 
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid inherit;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 65px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+            border-radius: 1px;
+        }
+
         .balloon.purple {
             background: linear-gradient(135deg, #9b59b6, #6b3fa0);
+        }
+
+        .balloon.purple::before {
+            border-top-color: #6b3fa0;
         }
 
         .balloon.black {
             background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
         }
 
+        .balloon.black::before {
+            border-top-color: #1a1a1a;
+        }
+
         .balloon.white {
             background: linear-gradient(135deg, #fff, #e0e0e0);
         }
 
+        .balloon.white::before {
+            border-top-color: #e0e0e0;
+        }
+
         .balloon.pink {
             background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+        }
+
+        .balloon.pink::before {
+            border-top-color: #ff69b4;
         }
 
         @keyframes riseBalloon {
@@ -547,8 +588,8 @@
     <div class="balloons-container" id="balloons"></div>
 
     <div class="main-container">
-        <h1 class="title">Kuromi Te Desea Un Feliz Cumpleanos</h1>
-        <h2 class="title-sub">Nicole</h2>
+        <h1 class="title">&#x2728; Kuromi Te Desea Un Feliz Cumpleanos &#x2728;</h1>
+        <h2 class="title-sub">&#x1F380; Nicole &#x1F380;</h2>
 
         <div class="decorations">
             <span>&#x1F480;</span>

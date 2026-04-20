@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleanos Nicole</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -54,22 +55,17 @@
         }
 
         .title {
-            font-size: 3rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
             color: #fff;
             text-shadow: 
                 0 0 10px #ff69b4,
                 0 0 20px #ff69b4,
                 0 0 30px #ff69b4,
                 0 0 40px #9b59b6;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            line-height: 1.3;
             animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .title-sub {
-            font-size: 2.5rem;
-            color: #ffb6c1;
-            text-shadow: 0 0 15px #ff69b4;
-            margin-bottom: 30px;
         }
 
         @keyframes glow {
@@ -411,10 +407,7 @@
 
         @media (max-width: 600px) {
             .title {
-                font-size: 2rem;
-            }
-            .title-sub {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             .kuromi-body {
                 transform: scale(0.8);
@@ -441,8 +434,7 @@
     <div class="balloons-container" id="balloons"></div>
 
     <div class="main-container">
-        <h1 class="title">Feliz Cumpleanos</h1>
-        <h2 class="title-sub">Nicole</h2>
+        <h1 class="title">Kuromi Te Desea Un Feliz Cumpleanos</h1>
 
         <div class="decorations">
             <span>&#x1F480;</span>
@@ -509,27 +501,20 @@
 
     <script>
         var frases = [
-            "Feliz cumpleanos, Nicole. Espero que lo estes disfrutando.",
-            "Programar es bien dificil. Te respeto por hacerlo.",
+            "Feliz cumpleaños, Nicole. Espero que lo estés disfrutando.",
+            "Programar es bien difícil. Te respeto por hacerlo.",
             "No te odio ni te guardo rencor. Quiero que seas feliz.",
             "Espero que sanes esas heridas que no te dejan ser plena.",
-            "Si te preguntas por que hice esto: queria dejar un buen recuerdo de tu cumple. Espero haberlo logrado.",
-            "Si algun dia nos toca vernos de nuevo, espero que hayas mejorado eso que hasta a ti te molesta.",
-            "No se si esto es el final o una pausa para despues. Habra que descubrirlo.",
-            "Eres muy inteligente y capaz. Sigue asi.",
-            "Se que hiciste un esfuerzo conmigo. No dejes de esforzarte en lo que sigue.",
-            "No se si eres mala persona o alguien rota. Solo se que necesitas sanar. Y solo tu puedes ayudarte.",
+            "Si te preguntas por qué hice esto: quería dejar un buen recuerdo de tu cumple. Espero haberlo logrado.",
+            "Eres muy inteligente y capaz. Sigue así.",
+            "Sé que hiciste un esfuerzo conmigo. No dejes de esforzarte en lo que sigue.",
+            "No sé si eres mala persona o alguien rota. Solo sé que necesitas sanar. Y solo tú puedes ayudarte.",
             "No te juzgo, no te critico. Solo quiero alentarte a ser mejor.",
-            "Aunque te quiero, no voy a rogar. Si quisieras estar, estarias.",
-            "No confundas mi carino con debilidad.",
-            "Seguire adelante. Si vuelves, no te vere como extrana.",
-            "No creo que nos faltara afecto. Solo nuestras heridas decidieron.",
-            "No se si quieras mantenerme como opcion. No pasara.",
-            "Bienvenida a los 20. Pronto te diran abuela.",
-            "Quiero que Nomar y tu sean felices.",
+            "Quiero que Nomar y tú sean felices, el enserio me agrada.",
             "Espero que consigas tu vaca color vaca.",
-            "No te odio. Pero no se si pueda perdonar facilmente.",
-            "Si un dia estas lista para un hombre como yo, ya sabes. Pero no esperare."
+            "No sé si esto es un final o una pausa. El tiempo lo dirá.",
+            "No te odio. El perdón es un proceso, no una promesa inmediata.",
+            "Te quiero, pero rogar, no es querer, y quiero que ambos seamos felices."
         ];
 
         var frasesUsadas = [];

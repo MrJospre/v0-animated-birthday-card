@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Nicole 💜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== ESTRELLAS DEL FONDO ===== */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ===== TÍTULO ===== */
+        .title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: #fff;
+            text-shadow: 
+                0 0 10px #ff69b4,
+                0 0 20px #ff69b4,
+                0 0 30px #ff69b4,
+                0 0 40px #9b59b6;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .title-sub {
+            font-size: clamp(1.5rem, 6vw, 3rem);
+            color: #ffb6c1;
+            text-shadow: 0 0 15px #ff69b4;
+            margin-bottom: 30px;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4; }
+            to { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #9b59b6; }
+        }
+
+        /* ===== KUROMI ===== */
+        .kuromi-container {
+            position: relative;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .kuromi {
+            width: clamp(150px, 40vw, 250px);
+            height: auto;
+            position: relative;
+        }
+
+        /* Kuromi dibujada con CSS */
+        .kuromi-body {
+            position: relative;
+            width: 180px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .kuromi-head {
+            width: 140px;
+            height: 120px;
+            background: #1a1a1a;
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            margin: 0 auto;
+            border: 3px solid #2a2a2a;
+        }
+
+        .kuromi-hood {
+            position: absolute;
+            width: 160px;
+            height: 90px;
+            background: #1a1a1a;
+            border-radius: 50% 50% 0 0;
+            top: -30px;
+            left: -13px;
+            z-index: 1;
+        }
+
+        .kuromi-ear {
+            position: absolute;
+            width: 35px;
+            height: 70px;
+            background: #1a1a1a;
+            border-radius: 50% 50% 40% 40%;
+            top: -60px;
+            z-index: 2;
+        }
+
+        .kuromi-ear.left {
+            left: 15px;
+            transform: rotate(-15deg);
+        }
+
+        .kuromi-ear.right {
+            right: 15px;
+            transform: rotate(15deg);
+        }
+
+        .kuromi-ear-inner {
+            position: absolute;
+            width: 20px;
+            height: 45px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            top: 10px;
+            left: 7px;
+        }
+
+        .kuromi-skull {
+            position: absolute;
+            width: 50px;
+            height: 45px;
+            background: #ffb6c1;
+            border-radius: 50% 50% 40% 40%;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .kuromi-skull::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            top: 15px;
+            left: 10px;
+        }
+
+        .kuromi-skull::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            top: 15px;
+            right: 10px;
+        }
+
+        .kuromi-skull-bone {
+            position: absolute;
+            width: 8px;
+            height: 15px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            bottom: -8px;
+        }
+
+        .kuromi-skull-bone.left { left: 5px; }
+        .kuromi-skull-bone.right { right: 5px; }
+
+        .kuromi-face {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .kuromi-eye {
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            top: 20px;
+        }
+
+        .kuromi-eye.left { left: 18px; }
+        .kuromi-eye.right { right: 18px; }
+
+        .kuromi-eye-shine {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            top: 5px;
+            left: 3px;
+        }
+
+        .kuromi-blush {
+            position: absolute;
+            width: 18px;
+            height: 10px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            top: 45px;
+            opacity: 0.7;
+        }
+
+        .kuromi-blush.left { left: 5px; }
+        .kuromi-blush.right { right: 5px; }
+
+        .kuromi-mouth {
+            position: absolute;
+            width: 15px;
+            height: 8px;
+            border: 3px solid #1a1a1a;
+            border-top: none;
+            border-radius: 0 0 50% 50%;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== EMOJIS FLOTANTES ===== */
+        .floating-emojis {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            animation: floatEmoji 8s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatEmoji {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(10deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-25px) rotate(5deg); }
+        }
+
+        /* ===== GLOBOS ===== */
+        .balloons-container {
+            position: fixed;
+            bottom: -150px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 75px;
+            border-radius: 50% 50% 50% 50%;
+            animation: riseBalloon linear infinite;
+            opacity: 0.9;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid inherit;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background: rgba(255,255,255,0.5);
+            transform: translateX(-50%);
+        }
+
+        .balloon.purple {
+            background: linear-gradient(135deg, #9b59b6, #6b3fa0);
+        }
+        .balloon.purple::before { border-top-color: #6b3fa0; }
+
+        .balloon.black {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+        }
+        .balloon.black::before { border-top-color: #1a1a1a; }
+
+        .balloon.white {
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+        }
+        .balloon.white::before { border-top-color: #e0e0e0; }
+
+        .balloon.pink {
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+        }
+        .balloon.pink::before { border-top-color: #ff69b4; }
+
+        @keyframes riseBalloon {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-150vh) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== BOTÓN ===== */
+        .button-container {
+            margin: 30px 0;
+        }
+
+        .surprise-btn {
+            background: linear-gradient(135deg, #ff69b4, #9b59b6);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 
+                0 5px 20px rgba(155, 89, 182, 0.5),
+                0 0 30px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 
+                0 8px 30px rgba(155, 89, 182, 0.7),
+                0 0 50px rgba(255, 105, 180, 0.5);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== MENSAJE ===== */
+        .message-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin: 20px auto;
+            max-width: 90%;
+            width: 500px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 20px rgba(255, 105, 180, 0.3),
+                inset 0 0 20px rgba(155, 89, 182, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+        }
+
+        .message-box.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .message-text {
+            color: #fff;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* ===== DECORACIONES ===== */
+        .decorations {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .kuromi-body {
+                transform: scale(0.8);
+            }
+            
+            .message-box {
+                padding: 20px;
+            }
+            
+            .surprise-btn {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrellas -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Emojis flotantes -->
+    <div class="floating-emojis" id="emojis"></div>
+
+    <!-- Globos -->
+    <div class="balloons-container" id="balloons"></div>
+
+    <!-- Contenido principal -->
+    <div class="main-container">
+        <h1 class="title">✨ Feliz Cumpleaños ✨</h1>
+        <h2 class="title-sub">🎀 Nicole 🎀</h2>
+
+        <div class="decorations">
+            💀 🖤 🌙 🎀 🌟 🦇
+        </div>
+
+        <!-- Kuromi dibujada con CSS -->
+        <div class="kuromi-container">
+            <div class="kuromi-body">
+                <div class="kuromi-head">
+                    <div class="kuromi-hood"></div>
+                    <div class="kuromi-ear left">
+                        <div class="kuromi-ear-inner"></div>
+                    </div>
+                    <div class="kuromi-ear right">
+                        <div class="kuromi-ear-inner"></div>
+                    </div>
+                    <div class="kuromi-skull">
+                        <div class="kuromi-skull-bone left"></div>
+                        <div class="kuromi-skull-bone right"></div>
+                    </div>
+                    <div class="kuromi-face">
+                        <div class="kuromi-eye left">
+                            <div class="kuromi-eye-shine"></div>
+                        </div>
+                        <div class="kuromi-eye right">
+                            <div class="kuromi-eye-shine"></div>
+                        </div>
+                        <div class="kuromi-blush left"></div>
+                        <div class="kuromi-blush right"></div>
+                        <div class="kuromi-mouth"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="decorations">
+            🕸️ 💜 🖤 💜 🕸️
+        </div>
+
+        <!-- Botón sorpresa -->
+        <div class="button-container">
+            <button class="surprise-btn" onclick="showMessage()">
+                ✨ Sorpresa ✨
+            </button>
+        </div>
+
+        <!-- Caja de mensaje -->
+        <div class="message-box" id="messageBox">
+            <p class="message-text" id="messageText">Haz clic en el botón para ver un mensaje especial 💜</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Hecho con 💜 para Nicole
+    </div>
+
+    <script>
+        // ===== FRASES (21 frases exactas) =====
+        const frases = [
+            "Feliz cumpleaños, Nicole. Espero que lo estés disfrutando.",
+            "Programar es bien difícil. Te respeto por hacerlo.",
+            "No te odio ni te guardo rencor. Quiero que seas feliz.",
+            "Espero que sanes esas heridas que no te dejan ser plena.",
+            "Si te preguntas por qué hice esto: quería dejar un buen recuerdo de tu cumple. Espero haberlo logrado.",
+            "Si algún día nos toca vernos de nuevo, espero que hayas mejorado eso que hasta a ti te molesta.",
+            "No sé si esto es el final o una pausa para después. Habrá que descubrirlo.",
+            "Eres muy inteligente y capaz. Sigue así.",
+            "Sé que hiciste un esfuerzo conmigo. No dejes de esforzarte en lo que sigue.",
+            "No sé si eres mala persona o alguien rota. Solo sé que necesitas sanar. Y solo tú puedes ayudarte.",
+            "No te juzgo, no te critico. Solo quiero alentarte a ser mejor.",
+            "Aunque te quiero, no voy a rogar. Si quisieras estar, estarías.",
+            "No confundas mi cariño con debilidad.",
+            "Seguiré adelante. Si vuelves, no te veré como extraña.",
+            "No creo que nos faltara afecto. Solo nuestras heridas decidieron.",
+            "No sé si quieras mantenerme como opción. No pasará.",
+            "Bienvenida a los 20. Pronto te dirán abuela.",
+            "Quiero que Nomar y tú sean felices.",
+            "Espero que consigas tu vaca color vaca.",
+            "No te odio. Pero no sé si pueda perdonar fácilmente.",
+            "Si un día estás lista para un hombre como yo, ya sabes. Pero no esperaré."
+        ];
+
+        let frasesUsadas = [];
+
+        // ===== MOSTRAR MENSAJE =====
+        function showMessage() {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            
+            // Si ya usamos todas las frases, reiniciar
+            if (frasesUsadas.length >= frases.length) {
+                frasesUsadas = [];
+            }
+            
+            // Obtener frases disponibles
+            let frasesDisponibles = frases.filter((_, index) => !frasesUsadas.includes(index));
+            
+            // Seleccionar una frase aleatoria
+            let randomIndex = Math.floor(Math.random() * frasesDisponibles.length);
+            let fraseSeleccionada = frasesDisponibles[randomIndex];
+            let indiceOriginal = frases.indexOf(fraseSeleccionada);
+            
+            frasesUsadas.push(indiceOriginal);
+            
+            // Animar
+            messageBox.classList.remove('show');
+            setTimeout(() => {
+                messageText.textContent = fraseSeleccionada;
+                messageBox.classList.add('show');
+            }, 200);
+        }
+
+        // ===== CREAR ESTRELLAS =====
+        function createStars() {
+            const container = document.getElementById('stars');
+            const numStars = 150;
+            
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // ===== CREAR EMOJIS FLOTANTES =====
+        function createEmojis() {
+            const container = document.getElementById('emojis');
+            const emojis = ['💀', '🖤', '🌙', '🎀', '🌟', '🦇', '🕸️', '💜', '✨'];
+            const positions = [
+                { left: '5%', top: '10%' },
+                { left: '90%', top: '15%' },
+                { left: '15%', top: '75%' },
+                { left: '85%', top: '80%' },
+                { left: '8%', top: '45%' },
+                { left: '92%', top: '50%' },
+                { left: '50%', top: '5%' },
+                { left: '30%', top: '90%' },
+                { left: '70%', top: '88%' }
+            ];
+            
+            positions.forEach((pos, index) => {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.textContent = emojis[index % emojis.length];
+                emoji.style.left = pos.left;
+                emoji.style.top = pos.top;
+                emoji.style.animationDelay = (index * 0.5) + 's';
+                container.appendChild(emoji);
+            });
+        }
+
+        // ===== CREAR GLOBOS =====
+        function createBalloon() {
+            const container = document.getElementById('balloons');
+            const colors = ['purple', 'black', 'white', 'pink'];
+            const balloon = document.createElement('div');
+            
+            balloon.className = 'balloon ' + colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.left = Math.random() * 90 + 5 + '%';
+            balloon.style.width = (Math.random() * 30 + 40) + 'px';
+            balloon.style.height = (parseFloat(balloon.style.width) * 1.2) + 'px';
+            balloon.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            
+            container.appendChild(balloon);
+            
+            // Eliminar globo después de la animación
+            setTimeout(() => {
+                balloon.remove();
+            }, 15000);
+        }
+
+        // ===== INICIALIZAR =====
+        createStars();
+        createEmojis();
+        
+        // Crear globos iniciales
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createBalloon, i * 1000);
+        }
+        
+        // Crear globos continuamente
+        setInterval(createBalloon, 2000);
+        
+        // Mostrar mensaje inicial
+        document.getElementById('messageBox').classList.add('show');
+    </script>
+</body>
+</html>

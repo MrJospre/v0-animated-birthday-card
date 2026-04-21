@@ -123,3 +123,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.birthday-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}

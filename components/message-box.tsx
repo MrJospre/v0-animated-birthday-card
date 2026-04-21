@@ -3,27 +3,25 @@
 import { useState, useRef } from "react"
 
 const frases = [
-  "Feliz cumpleanos, Nicole. Espero que lo estes disfrutando.",
-  "Programar es bien dificil. Te respeto por hacerlo.",
-  "No te odio ni te guardo rencor. Quiero que seas feliz.",
-  "Espero que sanes esas heridas que no te dejan ser plena.",
-  "Si te preguntas por que hice esto: queria dejar un buen recuerdo de tu cumple. Espero haberlo logrado.",
-  "Si algun dia nos toca vernos de nuevo, espero que hayas mejorado eso que hasta a ti te molesta.",
-  "No se si esto es el final o una pausa para despues. Habra que descubrirlo.",
-  "Eres muy inteligente y capaz. Sigue asi.",
-  "Se que hiciste un esfuerzo conmigo. No dejes de esforzarte en lo que sigue.",
-  "No se si eres mala persona o alguien rota. Solo se que necesitas sanar. Y solo tu puedes ayudarte.",
-  "No te juzgo, no te critico. Solo quiero alentarte a ser mejor.",
-  "Aunque te quiero, no voy a rogar. Si quisieras estar, estarias.",
-  "No confundas mi carino con debilidad.",
-  "Seguire adelante. Si vuelves, no te vere como extrana.",
-  "No creo que nos faltara afecto. Solo nuestras heridas decidieron.",
-  "No se si quieras mantenerme como opcion. No pasara.",
-  "Bienvenida a los 20. Pronto te diran abuela.",
-  "Quiero que Nomar y tu sean felices.",
-  "Espero que consigas tu vaca color vaca.",
-  "No te odio. Pero no se si pueda perdonar facilmente.",
-  "Si un dia estas lista para un hombre como yo, ya sabes. Pero no esperare.",
+  "Feliz cumpleaños, Negra. Espero que este ciclo compile sin errores.",
+  "Programar es bien difícil. Te respeto por hacerlo.",
+  "Espero que logres debuguear esas heridas que no te dejan ejecutar en paz.",
+  "Espero que consigas tu vaca color vaca. 🐄",
+  "Si te preguntas por qué hice esto: quería dejar un commit bonito en tu historial. Espero no haberlo roto.",
+  "Eres inteligente y capaz. Cuando tu self-confidence esté en null, recuerda: yo tengo fe en tu algoritmo.",
+  "Eres inteligente y capaz. Tu mejor feature eres tú. Cuando el sistema falle, recuerda: yo no tengo bugs en mi fe por ti.",
+  "Sé que conmigo diste try-catch repetidos. No dejes de intentarlo en lo que sigue.",
+  "No sé si tu código tiene errores de sintaxis o lógica. Solo sé que necesitas debuguearte sola. Y sé que lo lograrás.",
+  "No te juzgo. No te critico. Solo te paso un console.log(\"creo en ti, sé que puedes\").",
+  "Quiero que Nomar y tú sean felices, él en serio me agrada.",
+  "No sé si esto es un break o un continue. El runtime lo dirá.",
+  "No te odio. El perdón es una función asíncrona. No se resuelve de inmediato.",
+  "Te quiero, pero rogar no es querer. Y quiero que ambos seamos felices.",
+  "Tu lógica para resolver conflictos es compleja. Tal vez necesite un refactor. A veces actualizar el código ayuda a que todo funcione mejor.",
+  "Tu forma de manejar problemas es como un script heredado. Funciona, pero con legacy bugs. Un buen update emocional te haría más feliz.",
+  "Resuelves conflictos como si tuvieras callback hell. Depurar eso te ayudaría a vivir con menos errors y más success.",
+  "while(!feliz) { mejorar(); Trabajar En Tu Mejor Version(); } sudo !!",
+  "No se si te lo preguntas, pero no, no te odio. No guardo rencor. quiero que tu vida tenga más true que false.",
 ]
 
 export function MessageBox() {
@@ -54,16 +52,16 @@ export function MessageBox() {
 
   return (
     <>
-      <div className={`message-box ${isVisible ? "show" : ""}`}>
-        <p className="message-text">
-          🎉 {message} 🎁
-        </p>
-      </div>
-
       <div className="button-container">
         <button className="surprise-btn" onClick={showMessage}>
-          🎂 PRESIONAME 🎁
+          🎀 ejecutar 🖤
         </button>
+      </div>
+
+      <div className={`message-box ${isVisible ? "show" : ""}`}>
+        <p className="message-text">
+          {message}
+        </p>
       </div>
     </>
   )

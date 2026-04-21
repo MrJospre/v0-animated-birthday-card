@@ -590,8 +590,8 @@
             bottom: 230px;
             left: 50%;
             transform: translateX(-50%) translateY(30px) scale(0);
-            width: 130px;
-            height: 150px;
+            width: 90px;
+            height: 100px;
         }
 
         .kuromi-container.visible {
@@ -601,7 +601,7 @@
 
         @keyframes kuromiJump {
             0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
-            50% { transform: translateX(-50%) translateY(-10px) scale(1.02); }
+            50% { transform: translateX(-50%) translateY(-8px) scale(1.02); }
         }
 
         .kuromi {
@@ -610,17 +610,16 @@
             height: 100%;
         }
 
-        /* Cabeza/Capucha */
+        /* Cabeza */
         .kuromi-head {
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 85px;
-            background: #3a3a3a;
+            width: 70px;
+            height: 60px;
+            background: #1a1a1a;
             border-radius: 50% 50% 45% 45%;
-            border: 3px solid #1a1a1a;
         }
 
         /* Cara */
@@ -629,174 +628,112 @@
             bottom: 5px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 58px;
+            width: 50px;
+            height: 42px;
             background: #fff;
             border-radius: 50% 50% 45% 45%;
-            border: 2px solid #1a1a1a;
         }
 
         /* Ojos */
         .kuromi-eye {
             position: absolute;
-            width: 12px;
-            height: 14px;
+            width: 7px;
+            height: 9px;
             background: #1a1a1a;
             border-radius: 50%;
-            top: 18px;
+            top: 15px;
         }
 
-        .kuromi-eye.left { left: 14px; }
-        .kuromi-eye.right { right: 14px; }
+        .kuromi-eye.left { left: 12px; }
+        .kuromi-eye.right { right: 12px; }
 
         .kuromi-eye-shine {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: #fff;
             border-radius: 50%;
-            top: 3px;
-            left: 2px;
-        }
-
-        /* Pestanas */
-        .kuromi-lash {
-            position: absolute;
-            width: 3px;
-            height: 6px;
-            background: #1a1a1a;
-            top: -4px;
-        }
-
-        .kuromi-eye.left .kuromi-lash { left: 0; transform: rotate(-20deg); }
-        .kuromi-eye.right .kuromi-lash { right: 0; transform: rotate(20deg); }
-
-        /* Nariz */
-        .kuromi-nose {
-            position: absolute;
-            bottom: 22px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 6px;
-            background: #ffb6c1;
-            border-radius: 50%;
+            top: 2px;
+            left: 1px;
         }
 
         /* Sonrisa */
         .kuromi-mouth {
             position: absolute;
-            bottom: 12px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 18px;
-            height: 8px;
+            width: 12px;
+            height: 6px;
             border: 2px solid #1a1a1a;
             border-top: none;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 12px 12px;
         }
 
         /* Mejillas */
         .kuromi-blush {
             position: absolute;
-            width: 10px;
-            height: 6px;
+            width: 8px;
+            height: 5px;
             background: #ffb6c1;
             border-radius: 50%;
-            top: 32px;
+            top: 24px;
         }
 
-        .kuromi-blush.left { left: 5px; }
-        .kuromi-blush.right { right: 5px; }
+        .kuromi-blush.left { left: 6px; }
+        .kuromi-blush.right { right: 6px; }
 
-        /* Orejas triangulares con puntas */
+        /* Orejas */
         .kuromi-ear {
             position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 18px solid transparent;
-            border-right: 18px solid transparent;
-            border-bottom: 55px solid #3a3a3a;
-            top: -45px;
-        }
-
-        .kuromi-ear::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: -10px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 35px solid #ffb6c1;
+            width: 22px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 50% 50% 50% 50%;
+            top: -28px;
         }
 
         .kuromi-ear.left {
-            left: 8px;
-            transform: rotate(-10deg);
+            left: 5px;
+            transform: rotate(-15deg);
         }
 
         .kuromi-ear.right {
-            right: 8px;
-            transform: rotate(10deg);
+            right: 5px;
+            transform: rotate(15deg);
         }
 
-        /* Bolitas en las puntas de las orejas */
-        .kuromi-ear-ball {
+        .kuromi-ear-inner {
             position: absolute;
-            width: 14px;
-            height: 14px;
-            background: #4a4a4a;
+            width: 12px;
+            height: 25px;
+            background: #ffb6c1;
             border-radius: 50%;
-            border: 2px solid #1a1a1a;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .kuromi-ear.left .kuromi-ear-ball {
-            top: -60px;
-            left: 12px;
-        }
-
-        .kuromi-ear.right .kuromi-ear-ball {
-            top: -60px;
-            right: 12px;
-        }
-
-        /* Calavera rosa en la frente */
+        /* Calavera en la cabeza */
         .kuromi-skull {
             position: absolute;
-            top: -5px;
+            top: -3px;
             left: 50%;
             transform: translateX(-50%);
-            width: 32px;
-            height: 28px;
+            width: 26px;
+            height: 22px;
             background: #ffb6c1;
-            border-radius: 50% 50% 45% 45%;
+            border-radius: 50% 50% 40% 40%;
             z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 3px;
         }
 
-        .skull-eye {
-            position: absolute;
-            width: 6px;
-            height: 7px;
-            background: #3a3a3a;
-            border-radius: 50% 50% 50% 50%;
-            top: 10px;
-        }
-
-        .skull-eye.left { left: 6px; }
-        .skull-eye.right { right: 6px; }
-
-        .skull-nose {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top: 5px solid #3a3a3a;
+        .skull-heart {
+            font-size: 10px;
+            color: #1a1a1a;
         }
 
         /* ============================================
@@ -942,19 +879,14 @@
             <div class="cake-part kuromi-container" id="kuromi">
                 <div class="kuromi">
                     <div class="kuromi-head">
-                        <div class="kuromi-ear left"><div class="kuromi-ear-ball"></div></div>
-                        <div class="kuromi-ear right"><div class="kuromi-ear-ball"></div></div>
-                        <div class="kuromi-skull">
-                            <div class="skull-eye left"></div>
-                            <div class="skull-eye right"></div>
-                            <div class="skull-nose"></div>
-                        </div>
+                        <div class="kuromi-ear left"><div class="kuromi-ear-inner"></div></div>
+                        <div class="kuromi-ear right"><div class="kuromi-ear-inner"></div></div>
+                        <div class="kuromi-skull"><span class="skull-heart">&#x2665;</span></div>
                         <div class="kuromi-face">
-                            <div class="kuromi-eye left"><div class="kuromi-eye-shine"></div><div class="kuromi-lash"></div></div>
-                            <div class="kuromi-eye right"><div class="kuromi-eye-shine"></div><div class="kuromi-lash"></div></div>
+                            <div class="kuromi-eye left"><div class="kuromi-eye-shine"></div></div>
+                            <div class="kuromi-eye right"><div class="kuromi-eye-shine"></div></div>
                             <div class="kuromi-blush left"></div>
                             <div class="kuromi-blush right"></div>
-                            <div class="kuromi-nose"></div>
                             <div class="kuromi-mouth"></div>
                         </div>
                     </div>

@@ -47,22 +47,45 @@ export function MessageBox() {
       ctx.resume()
     }
 
-    const oscillator = ctx.createOscillator()
-    const gainNode = ctx.createGain()
+    // Magical sparkle/chime sound - multiple layered tones
+    const notes = [523.25, 659.25, 783.99, 1046.50] // C5, E5, G5, C6 - magical arpeggio
     
-    oscillator.connect(gainNode)
-    gainNode.connect(ctx.destination)
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator()
+      const gain = ctx.createGain()
+      
+      osc.connect(gain)
+      gain.connect(ctx.destination)
+      
+      osc.type = "sine"
+      osc.frequency.setValueAtTime(freq, ctx.currentTime)
+      
+      const startTime = ctx.currentTime + i * 0.04
+      const duration = 0.3 - i * 0.03
+      
+      gain.gain.setValueAtTime(0, startTime)
+      gain.gain.linearRampToValueAtTime(0.12, startTime + 0.02)
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration)
+      
+      osc.start(startTime)
+      osc.stop(startTime + duration)
+    })
+
+    // Add a soft shimmer/bell overtone
+    const shimmer = ctx.createOscillator()
+    const shimmerGain = ctx.createGain()
+    shimmer.connect(shimmerGain)
+    shimmerGain.connect(ctx.destination)
     
-    // Cute "pop" sound
-    oscillator.type = "sine"
-    oscillator.frequency.setValueAtTime(800, ctx.currentTime)
-    oscillator.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08)
+    shimmer.type = "triangle"
+    shimmer.frequency.setValueAtTime(1567.98, ctx.currentTime) // G6
+    shimmer.frequency.exponentialRampToValueAtTime(2093, ctx.currentTime + 0.15) // C7
     
-    gainNode.gain.setValueAtTime(0.2, ctx.currentTime)
-    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12)
+    shimmerGain.gain.setValueAtTime(0.05, ctx.currentTime)
+    shimmerGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25)
     
-    oscillator.start(ctx.currentTime)
-    oscillator.stop(ctx.currentTime + 0.12)
+    shimmer.start(ctx.currentTime)
+    shimmer.stop(ctx.currentTime + 0.25)
   }
 
   const showMessage = () => {

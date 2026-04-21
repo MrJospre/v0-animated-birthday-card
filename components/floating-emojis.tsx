@@ -2,17 +2,24 @@
 
 import { useEffect, useRef } from "react"
 
-const emojis = ["💀", "🖤", "🌙", "🎀", "🌟", "🦇", "🕸️", "💜", "✨"]
+const emojis = ["💀", "🖤", "🌙", "🎀", "🎁", "🦇", "💜", "✨", "🎂", "🧁", "💝", "🎀", "💀", "🌟", "🖤", "💜"]
 const positions = [
-  { left: "5%", top: "10%" },
-  { left: "90%", top: "15%" },
-  { left: "15%", top: "75%" },
-  { left: "85%", top: "80%" },
-  { left: "8%", top: "45%" },
-  { left: "92%", top: "50%" },
-  { left: "50%", top: "5%" },
-  { left: "30%", top: "90%" },
-  { left: "70%", top: "88%" },
+  { left: "3%", top: "8%" },
+  { left: "12%", top: "25%" },
+  { left: "5%", top: "55%" },
+  { left: "8%", top: "78%" },
+  { left: "92%", top: "12%" },
+  { left: "88%", top: "35%" },
+  { left: "94%", top: "58%" },
+  { left: "90%", top: "82%" },
+  { left: "25%", top: "15%" },
+  { left: "75%", top: "18%" },
+  { left: "20%", top: "88%" },
+  { left: "80%", top: "85%" },
+  { left: "35%", top: "5%" },
+  { left: "65%", top: "92%" },
+  { left: "15%", top: "42%" },
+  { left: "85%", top: "65%" },
 ]
 
 export function FloatingEmojis() {

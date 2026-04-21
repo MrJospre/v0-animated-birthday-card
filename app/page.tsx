@@ -1,7 +1,7 @@
 import { Stars } from "@/components/stars"
 import { FloatingEmojis } from "@/components/floating-emojis"
 import { Balloons } from "@/components/balloons"
-import { Kuromi } from "@/components/kuromi"
+import { BirthdayCake } from "@/components/birthday-cake"
 import { MessageBox } from "@/components/message-box"
 import "./birthday.css"
 
@@ -13,32 +13,25 @@ export default function BirthdayCard() {
       <Balloons />
 
       <div className="main-container">
-        <h1 className="title">Feliz Cumpleanos</h1>
-        <h2 className="title-sub">Nicole</h2>
-
-        <div className="decorations">
-          <span>💀</span>
-          <span>🖤</span>
-          <span>🌙</span>
+        <h1 className="title">
+          <span className="sparkle">✨</span>
+          {" Kuromi Te Desea Un Feliz Cumpleanos "}
+          <span className="sparkle">✨</span>
+        </h1>
+        <h2 className="title-sub">
           <span>🎀</span>
-          <span>🌟</span>
-          <span>🦇</span>
-        </div>
+          {" Nicole "}
+          <span>🎀</span>
+        </h2>
 
-        <Kuromi />
-
-        <div className="decorations">
-          <span>🕸️</span>
-          <span>💜</span>
-          <span>🖤</span>
-          <span>💜</span>
-          <span>🕸️</span>
-        </div>
+        <BirthdayCake />
 
         <MessageBox />
       </div>
 
-      <div className="footer">Hecho con amor para Nicole</div>
+      <div className="footer">
+        Hecho con amor para Nicole <span className="heart">💜</span>
+      </div>
     </div>
   )
 }

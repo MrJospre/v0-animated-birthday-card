@@ -54,14 +54,16 @@ export function MessageBox() {
 
   return (
     <>
-      <div className="button-container">
-        <button className="surprise-btn" onClick={showMessage}>
-          Sorpresa
-        </button>
+      <div className={`message-box ${isVisible ? "show" : ""}`}>
+        <p className="message-text">
+          🎉 {message} 🎁
+        </p>
       </div>
 
-      <div className={`message-box ${isVisible ? "show" : ""}`}>
-        <p className="message-text">{message}</p>
+      <div className="button-container">
+        <button className="surprise-btn" onClick={showMessage}>
+          🎂 PRESIONAME 🎁
+        </button>
       </div>
     </>
   )

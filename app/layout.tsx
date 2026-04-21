@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Pacifico, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const pacifico = Pacifico({ 
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-cursive"
+})
+
+const poppins = Poppins({ 
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-sans"
+})
 
 export const metadata: Metadata = {
   title: 'Feliz Cumpleanos Nicole',
@@ -36,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="font-sans antialiased">
+      <body className={`${pacifico.variable} ${poppins.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

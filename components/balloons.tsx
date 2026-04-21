@@ -14,30 +14,47 @@ export function Balloons() {
     function createBalloon() {
       if (!container) return
 
+      const balloonWrapper = document.createElement("div")
+      balloonWrapper.className = "balloon-wrapper"
+      balloonWrapper.style.left = `${Math.random() * 90 + 5}%`
+      balloonWrapper.style.animationDuration = `${Math.random() * 5 + 8}s`
+
       const balloon = document.createElement("div")
-      balloon.className = `balloon ${colors[Math.floor(Math.random() * colors.length)]}`
-      balloon.style.left = `${Math.random() * 90 + 5}%`
-      const width = Math.random() * 30 + 40
+      const color = colors[Math.floor(Math.random() * colors.length)]
+      balloon.className = `balloon ${color}`
+      const width = Math.random() * 25 + 35
       balloon.style.width = `${width}px`
       balloon.style.height = `${width * 1.2}px`
-      balloon.style.animationDuration = `${Math.random() * 5 + 8}s`
 
-      container.appendChild(balloon)
+      // Balloon knot
+      const knot = document.createElement("div")
+      knot.className = `balloon-knot ${color}`
+
+      // Balloon string
+      const string = document.createElement("div")
+      string.className = "balloon-string"
+      const stringHeight = Math.random() * 40 + 60
+      string.style.height = `${stringHeight}px`
+
+      balloonWrapper.appendChild(balloon)
+      balloonWrapper.appendChild(knot)
+      balloonWrapper.appendChild(string)
+      container.appendChild(balloonWrapper)
 
       setTimeout(() => {
-        if (balloon.parentNode) {
-          balloon.parentNode.removeChild(balloon)
+        if (balloonWrapper.parentNode) {
+          balloonWrapper.parentNode.removeChild(balloonWrapper)
         }
       }, 15000)
     }
 
     // Create initial balloons
-    for (let i = 0; i < 5; i++) {
-      setTimeout(() => createBalloon(), i * 1000)
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => createBalloon(), i * 800)
     }
 
     // Create new balloons periodically
-    const interval = setInterval(createBalloon, 2000)
+    const interval = setInterval(createBalloon, 2500)
 
     return () => {
       clearInterval(interval)

@@ -22,6 +22,7 @@ const frases = [
   "Resuelves conflictos como si tuvieras callback hell. Depurar eso te ayudaría a vivir con menos errors y más success.",
   "while(!feliz) { mejorar(); Trabajar En Tu Mejor Version(); } sudo !!",
   "No se si te lo preguntas, pero no, no te odio. No guardo rencor. quiero que tu vida tenga más true que false.",
+  "Espero te haya gustado, y que tu vigésimo cumpleaños sea un buen recuerdo.",
 ]
 
 export function MessageBox() {

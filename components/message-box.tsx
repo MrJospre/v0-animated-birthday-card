@@ -6,7 +6,7 @@ const frases = [
   "Feliz cumpleaños, Negra. Espero que este ciclo compile sin errores.",
   "Programar es bien difícil. Te respeto por hacerlo.",
   "Espero que logres debuguear esas heridas que no te dejan ejecutar en paz.",
-  "Espero que consigas tu vaca color vaca. 🐄",
+  "Espero que consigas tu vaca color vaca.",
   "Si te preguntas por qué hice esto: quería dejar un commit bonito en tu historial. Espero no haberlo roto.",
   "Eres inteligente y capaz. Cuando tu self-confidence esté en null, recuerda: yo tengo fe en tu algoritmo.",
   "Eres inteligente y capaz. Tu mejor feature eres tú. Cuando el sistema falle, recuerda: yo no tengo bugs en mi fe por ti.",
@@ -25,8 +25,9 @@ const frases = [
 ]
 
 export function MessageBox() {
-  const [message, setMessage] = useState("Haz clic en el boton para ver un mensaje especial")
+  const [message, setMessage] = useState("Presiona el boton para ver mensajes")
   const [isVisible, setIsVisible] = useState(false)
+  const [clickCount, setClickCount] = useState(0)
   const usedPhrases = useRef<number[]>([])
 
   const showMessage = () => {
@@ -42,6 +43,7 @@ export function MessageBox() {
     const selectedIndex = availableIndices[randomIndex]
 
     usedPhrases.current.push(selectedIndex)
+    setClickCount((prev) => prev + 1)
 
     setIsVisible(false)
     setTimeout(() => {
@@ -50,18 +52,28 @@ export function MessageBox() {
     }, 200)
   }
 
+  const progress = Math.min((clickCount / frases.length) * 100, 100)
+
   return (
     <>
+      <div className={`message-box ${isVisible ? "show" : ""}`}>
+        <p className="message-text animated-text">
+          {message}
+        </p>
+      </div>
+
       <div className="button-container">
         <button className="surprise-btn" onClick={showMessage}>
           🎀 ejecutar 🖤
         </button>
       </div>
 
-      <div className={`message-box ${isVisible ? "show" : ""}`}>
-        <p className="message-text">
-          {message}
-        </p>
+      <div className="click-counter">
+        Frases reveladas: {clickCount} / {frases.length}
+      </div>
+
+      <div className="progress-container">
+        <div className="progress-bar" style={{ width: `${progress}%` }} />
       </div>
     </>
   )

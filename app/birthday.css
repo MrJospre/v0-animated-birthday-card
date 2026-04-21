@@ -486,12 +486,16 @@
   }
   50% {
     transform: translateY(50vh) rotate(5deg);
-  }
-  95% {
     opacity: 0.9;
   }
+  80% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.3;
+  }
   100% {
-    transform: translateY(-120vh) rotate(-5deg);
+    transform: translateY(-100vh) rotate(-5deg);
     opacity: 0;
   }
 }
@@ -622,4 +626,266 @@
   .emoji {
     font-size: 1.2rem;
   }
+}
+
+/* ========== SHOOTING STARS ========== */
+.shooting-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, transparent);
+  border-radius: 2px;
+  animation: shootingStar 1s linear forwards;
+  box-shadow: 0 0 10px #fff, 0 0 20px rgba(255,255,255,0.5);
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px) translateY(500px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* ========== HEART RAIN ========== */
+.heart-rain-container {
+  position: fixed;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.falling-heart {
+  position: absolute;
+  animation: fallHeart linear infinite;
+}
+
+@keyframes fallHeart {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* ========== PAW PRINTS ========== */
+.paw-prints-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.paw-print {
+  position: absolute;
+  width: 40px;
+  height: 45px;
+  animation: pawFade 4s ease-in-out infinite;
+}
+
+.paw-print.bottom-left {
+  bottom: 30px;
+  left: 30px;
+  animation-delay: 0s;
+}
+
+.paw-print.bottom-right {
+  bottom: 40px;
+  right: 30px;
+  animation-delay: 1s;
+}
+
+.paw-print.top-left {
+  top: 80px;
+  left: 40px;
+  animation-delay: 2s;
+}
+
+.paw-print.top-right {
+  top: 90px;
+  right: 40px;
+  animation-delay: 3s;
+}
+
+.paw-pad {
+  position: absolute;
+  background: #1a1a1a;
+  border-radius: 50%;
+}
+
+.paw-pad.main {
+  width: 20px;
+  height: 18px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.paw-pad.toe {
+  width: 10px;
+  height: 10px;
+}
+
+.paw-pad.t1 { top: 0; left: 3px; }
+.paw-pad.t2 { top: 5px; left: 15px; }
+.paw-pad.t3 { top: 5px; right: 15px; }
+.paw-pad.t4 { top: 0; right: 3px; }
+
+@keyframes pawFade {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* ========== FLOATING BOWS ========== */
+.floating-bows-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.floating-bow {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+
+.floating-bow.visible {
+  opacity: 0.8;
+  transform: scale(1);
+  animation: bowPulse 2s ease-in-out infinite;
+}
+
+@keyframes bowPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ========== FLOATING SKULLS ========== */
+.cake-with-skulls {
+  position: relative;
+}
+
+.floating-skulls-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-skull {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0.3;
+  animation: skullFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255,182,193,0.5));
+}
+
+@keyframes skullFloat {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(10px) translateY(-5px); }
+  50% { transform: translateX(0) translateY(-10px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
+}
+
+/* ========== ANIMATED TEXT COLOR ========== */
+.animated-text {
+  animation: textColorCycle 9s ease-in-out infinite;
+}
+
+@keyframes textColorCycle {
+  0%, 100% { color: #ffb6c1; }
+  33% { color: #a855f7; }
+  66% { color: #ffffff; }
+}
+
+/* ========== CLICK COUNTER & PROGRESS ========== */
+.click-counter {
+  font-family: var(--font-sans), 'Poppins', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin: 10px 0 8px;
+  text-align: center;
+}
+
+.progress-container {
+  width: 200px;
+  height: 8px;
+  background: rgba(30, 20, 50, 0.6);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8fab, #a855f7);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* ========== ENHANCED BUTTON HOVER ========== */
+.surprise-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow:
+    0 8px 35px rgba(155, 89, 182, 0.7),
+    0 0 60px rgba(255, 143, 171, 0.5),
+    0 0 80px rgba(155, 89, 182, 0.3);
+}
+
+/* ========== SOUND TOGGLE ========== */
+.sound-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(30, 20, 50, 0.8);
+  border: 2px solid rgba(155, 89, 182, 0.5);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.sound-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
 }

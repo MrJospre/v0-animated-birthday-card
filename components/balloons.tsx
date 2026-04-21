@@ -48,13 +48,13 @@ export function Balloons() {
       }, 15000)
     }
 
-    // Create initial balloons
-    for (let i = 0; i < 6; i++) {
-      setTimeout(() => createBalloon(), i * 800)
+    // Create initial balloons (50% more)
+    for (let i = 0; i < 9; i++) {
+      setTimeout(() => createBalloon(), i * 600)
     }
 
-    // Create new balloons periodically
-    const interval = setInterval(createBalloon, 2500)
+    // Create new balloons periodically (50% more frequent)
+    const interval = setInterval(createBalloon, 1700)
 
     return () => {
       clearInterval(interval)

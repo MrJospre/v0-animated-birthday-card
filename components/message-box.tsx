@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const frases = [
   "Feliz cumpleaños, Negra. Espero que este ciclo compile sin errores.",
@@ -29,8 +29,44 @@ export function MessageBox() {
   const [isVisible, setIsVisible] = useState(false)
   const [clickCount, setClickCount] = useState(0)
   const usedPhrases = useRef<number[]>([])
+  const audioContextRef = useRef<AudioContext | null>(null)
+
+  useEffect(() => {
+    audioContextRef.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)()
+    return () => {
+      audioContextRef.current?.close()
+    }
+  }, [])
+
+  const playClickSound = () => {
+    const ctx = audioContextRef.current
+    if (!ctx) return
+
+    // Resume if suspended (browser autoplay policy)
+    if (ctx.state === "suspended") {
+      ctx.resume()
+    }
+
+    const oscillator = ctx.createOscillator()
+    const gainNode = ctx.createGain()
+    
+    oscillator.connect(gainNode)
+    gainNode.connect(ctx.destination)
+    
+    // Cute "pop" sound
+    oscillator.type = "sine"
+    oscillator.frequency.setValueAtTime(800, ctx.currentTime)
+    oscillator.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08)
+    
+    gainNode.gain.setValueAtTime(0.2, ctx.currentTime)
+    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12)
+    
+    oscillator.start(ctx.currentTime)
+    oscillator.stop(ctx.currentTime + 0.12)
+  }
 
   const showMessage = () => {
+    playClickSound()
     if (usedPhrases.current.length >= frases.length) {
       usedPhrases.current = []
     }
